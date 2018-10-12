@@ -10,12 +10,12 @@ fork_branch=${FORK_BRANCH:-master}
 
 # default setttings
 SWITCH=${OPAM_SWITCH:-'4.03.0+mingw64c'}
-OPAM_URL='https://github.com/fdopen/opam-repository-mingw/releases/download/0.0.0.1/opam64.tar.xz'
+OPAM_URL='https://github.com/fdopen/opam-repository-mingw/releases/download/0.0.0.2/opam64.tar.xz'
 OPAM_ARCH=opam64
 
 if [ "$PROCESSOR_ARCHITECTURE" != "AMD64" ] && \
        [ "$PROCESSOR_ARCHITEW6432" != "AMD64" ]; then
-    OPAM_URL='https://github.com/fdopen/opam-repository-mingw/releases/download/0.0.0.1/opam32.tar.xz'
+    OPAM_URL='https://github.com/fdopen/opam-repository-mingw/releases/download/0.0.0.2/opam32.tar.xz'
     OPAM_ARCH=opam32
 fi
 
@@ -67,7 +67,7 @@ case "$SWITCH" in
         ;;
 esac
 
-opam init -a default "https://github.com/fdopen/opam-repository-mingw.git" --comp "$SWITCH" --switch "$SWITCH"
+opam init -a default "https://github.com/fdopen/opam-repository-mingw.git#opam2" --comp "$SWITCH" --switch "$SWITCH"
 
 # update cached .opam
 opam update
